@@ -6,7 +6,7 @@ public class Atividade_ListaTres {
     static java.util.Random rand = new java.util.Random();
 
     public static void main(String[] args) {
-        ex6();
+        ex7();
     }
 
     // metodo
@@ -71,31 +71,51 @@ public class Atividade_ListaTres {
             contador = nome.length();
 
             if (contador == 3) {
-                System.out.printf("A palavra %s tem a quantidade certa de caracteres(3) \n", nome);}
+                System.out.printf("A palavra %s tem a quantidade certa de caracteres(3) \n", nome);
+            }
             if (contador != 3) {
                 System.out.printf("A palavra %s tem %d caracteres \n", nome, contador);
             }
             System.out.println("Programa Encerrado! \n");
         }
     }
-public static void ex6(){
-    int senha = 1234, contador = 0;
 
-    do{
-        System.out.println("Informe a senha(só pode ser numeros,nenhuma letras e nenhum caracter especial)");
-        senha = leia.nextInt();
-        contador++;
-        if (senha == 1234){
-            System.out.println("Senha Correta");
-            break;
-        } else {
-            System.err.println("Senha Incorreta");
+    public static void ex6() {
+        int senha = 1234, contador = 0;
+
+        do {
+            System.out.println("Informe a senha(só pode ser numeros,nenhuma letras e nenhum caracter especial)");
+            senha = leia.nextInt();
+            contador++;
+            if (senha == 1234) {
+                System.out.println("Senha Correta");
+                break;
+            } else {
+                System.err.println("Senha Incorreta");
+            }
+        } while (contador < 3);
+    }
+
+    public static void ex7() {
+        int segredo, tentativa = 0, palpite = 0;
+        segredo = rand.nextInt(1, 100);
+        while (palpite != segredo && tentativa < 5) { // testa a condição antes de repetir/iniciar o bloco
+            System.out.println("Tente adivinhar o numero sorteado");
+            palpite = leia.nextInt();
+            tentativa++;
         }
-    } while (contador < 3);
-    System.out.println("Quantidade excedida de tentativas!");
+        System.out.printf("%d tentativas(s) foi excedido!!", tentativa);
+        System.out.printf("O número era %d", segredo);
+
+    }
 }
-
-
-
-
+public static void ex8() {
+     String candidatos;
+     int contador = 0;
+        while (!candidatos.equalsIgnoreCase("sair")) {
+            System.out.println("Informe o nome do candidato, sendo eles\n: -- Candidato 1, --Candidato 2, --Candidato 3 ou --Nulo (Digite N)\n Para encerrar a votação digite 'Sair'");
+            candidatos = leia.nextLine();
+            contador++;
+        }
+        System.out.printf("Foram digitados %d carateres"   );
 }
