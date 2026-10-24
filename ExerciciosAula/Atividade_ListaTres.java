@@ -6,7 +6,7 @@ public class Atividade_ListaTres {
     static java.util.Random rand = new java.util.Random();
 
     public static void main(String[] args) {
-        ex7();
+        ex1();
     }
 
     // metodo
@@ -20,7 +20,7 @@ public class Atividade_ListaTres {
             caractere = leia.next().charAt(0);// primeira posição sempre é 0 em programação
             contador++;
         } while (caractere != '.'); // vai fazer enqunato o caractere nao for .
-        System.out.printf("Foram digitados %d carateres", --caractere);
+        System.out.printf("Foram digitados %d carateres", contador);
     }
 
     public static void ex2() { // Exercicios 2 da Lista 3
@@ -108,14 +108,85 @@ public class Atividade_ListaTres {
         System.out.printf("O número era %d", segredo);
 
     }
-}
-public static void ex8() {
-     String candidatos;
-     int contador = 0;
-        while (!candidatos.equalsIgnoreCase("sair")) {
-            System.out.println("Informe o nome do candidato, sendo eles\n: -- Candidato 1, --Candidato 2, --Candidato 3 ou --Nulo (Digite N)\n Para encerrar a votação digite 'Sair'");
-            candidatos = leia.nextLine();
-            contador++;
+
+    public static void ex8() {
+        String voto = "";
+        int voto1 = 0, voto2 = 0, voto3 = 0, nulo = 0, totalVotos = 0;
+        while (!voto.equalsIgnoreCase("Sair")) {
+            System.out.println(
+                    "Informe o seu voto\nCandidato 1\nCandidato 2\nCandidato 3\nNulo 'N'\nou 'Sair' para encerrar a votação:");
+            voto = leia.nextLine();
+            if (voto.equals("1")) {
+                voto1++;
+            } else if (voto.equals("2")) {
+                voto2++;
+            } else if (voto.equals("3")) {
+                voto3++;
+            } else if (!voto.equalsIgnoreCase("N")) {
+                nulo++;
+            } else if (voto.equalsIgnoreCase("Sair")) {
+                break;
+            }
         }
-        System.out.printf("Foram digitados %d carateres"   );
+        System.out.printf("Votos do Candidato 1: %d\n", voto1);
+        System.out.printf("Votos do Candidato 2: %d\n", voto2);
+        System.out.printf("Votos do Candidato 3: %d\n", voto3);
+        System.out.printf("Votos Nulos: %d\n", nulo);
+        System.out.printf("Total de Votos: %d\n", (voto1 + voto2 + voto3 + nulo));
+    }
+
+    public static void ex9() {
+        int saldo = 1000, saque = 0;
+        String opcao = "";
+        while (!opcao.equalsIgnoreCase("Sair")) {
+            System.out.println("Informe a operação desejada:\n1 - Saque\n2 - Saldo\n3 - Sair");
+            opcao = leia.nextLine();
+            if (opcao.equals("1")) {
+                System.out.println("Informe o valor do saque:");
+                saque = leia.nextInt();
+                if (saque <= saldo && saque > 0) {
+                    saldo -= saque;
+                    System.out.printf("Saque realizado com sucesso! Novo saldo: %d\n", saldo);
+                } else if (opcao.equals("2")) {
+                    System.out.printf("Saldo atual: %d\n", saldo);
+                } else if (saque < 0 || saque > saldo) {
+                    {
+                        System.out.println("Valor do saque inválido, você não tem saldo suficiente.");
+                    }
+                } else {
+                    System.out.println("Programa encerrado.");
+                }
+            }
+        }
+    }
+
+    public static void ex10() {
+        String capital = "Brasilia", opção = "";
+
+        while (!opção.equalsIgnoreCase(capital)) {
+            System.out.println("Qual é a capital do Brasil?");
+            opção = leia.next();
+            if (opção.equalsIgnoreCase("Brasilia") || opção.equalsIgnoreCase("Brasília")) {
+                System.out.println("Resposta correta!");
+            } else {
+                System.out.println("Resposta incorreta! Tente novamente.");
+            }
+        }
+    }
+
+    public static void ex11() {
+        String cpf = "1234567891011", entrada = "";
+        cpf.length();
+        do {
+            System.out.println("Informe o CPF");
+            entrada = leia.next();
+            if (cpf.length() == entrada.length()) {
+                System.out.println("CPF correto");
+                System.out.println("Programa encerrado");
+                break;
+            } else {
+                System.out.println("CPF incorreto, quantidade de caracteres diferente, tente novamente");
+            }
+        } while (cpf.length() != 11);
+    }
 }
