@@ -6,7 +6,7 @@ public class Atividade_ListaTres {
     static java.util.Random rand = new java.util.Random();
 
     public static void main(String[] args) {
-        ex13();
+        ex18();
     }
 
     // metodo
@@ -214,11 +214,89 @@ public class Atividade_ListaTres {
         }
     }
 
-public static void ex14(){
+    public static void ex14() {
+        int dado;
+        for (int i = 1; i <= 10; i++) {
+            dado = rand.nextInt(6) + 1;
+            System.out.println("Lançamento " + i + ": " + dado);
+            
+        }
+    }
+
+    public static void ex15() {
+        int escolha = 0;
+        while (escolha != 4) {
+            System.out.println("Escolha uma opção:");
+            System.out.println("MENU");
+            System.out.println("1 - Cardapio");
+            System.out.println("2 - Fazer pedido");
+            System.out.println("3 - Ver pedido");
+            System.out.println("4 - Sair");
+            escolha = leia.nextInt();
+            if (escolha > 4 || escolha < 1) {
+                System.out.println("Opção inválida, tente novamente");
+            } else {
+                System.out.println("Faça mais escolhas até Sair(4)");
+            }
+            if (escolha == 4) {
+                System.out.println("Programa Encerrado");
+            }
+        }
+    }
+
+    public static void ex16() {
+        char letra;
+        int contador = 0, vogais = 0;
+        do {
+            System.out.println("Informe uma letra(A Letra 'x' para encerrar)");
+            letra = leia.next().charAt(0);
+            contador++;
+            if (letra == 'a' || letra == 'e' || letra == 'i' || letra == 'o' || letra == 'u') {
+                {
+                    vogais++;
+                }
+            }
+        } while (letra != 'x'); // vai repetir enquanto o caractere nao for x
+
+        System.out.printf("Foram digitados %d letras\n", contador);
+        System.out.printf("A quantidade de letras que voce digitou\nTem %d vogais entre elas\n", vogais);
+        if (letra == 'x') {
+            System.out.println("Programa encerrado!(Você digitou a letra 'X')\n");
+        }
+    }
+
+    public static void ex17() {
+        String cadastro;
+        double preco, total = 0;
+        while (true) {
+            System.out.print("Informe nome do produto (ou 'fim'): ");
+            String nome = leia.nextLine();
+
+            if (nome.equalsIgnoreCase("fim")) {
+                break;
+            }
+
+            System.out.print("Preço de (Use a virgula) " + nome + ":");
+            preco = leia.nextDouble();
+            leia.nextLine(); // limpa o Enter
+            total += preco;
+            System.out.printf("O preço do produto %s é R$ %.2f%n", nome, preco);
+
+        }
+
+        System.out.println("Total geral: R$ " + total);
+
+    }
+
+    public static void ex18() {
+        System.out.println("Informe uma frase");
+        String frase = leia.nextLine(), vogais;
+        int total = frase.length();
+        System.out.println("A frase tem " + total + " caracteres.");
+      
+        }
+
     
-}
-
-
 
     public static void ex19() {
         String senha;
