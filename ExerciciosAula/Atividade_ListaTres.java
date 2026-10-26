@@ -6,7 +6,7 @@ public class Atividade_ListaTres {
     static java.util.Random rand = new java.util.Random();
 
     public static void main(String[] args) {
-        ex18();
+        ex23();
     }
 
     // metodo
@@ -19,7 +19,7 @@ public class Atividade_ListaTres {
             System.out.println("Informe um caractere");
             caractere = leia.next().charAt(0);// primeira posição sempre é 0 em programação
             contador++;
-        } while (caractere != '.'); // vai fazer enqunato o caractere nao for .
+        } while (caractere != '.'); // vai fazer enquanto o caractere nao for .
         System.out.printf("Foram digitados %d carateres", contador);
     }
 
@@ -219,7 +219,7 @@ public class Atividade_ListaTres {
         for (int i = 1; i <= 10; i++) {
             dado = rand.nextInt(6) + 1;
             System.out.println("Lançamento " + i + ": " + dado);
-            
+
         }
     }
 
@@ -289,19 +289,23 @@ public class Atividade_ListaTres {
     }
 
     public static void ex18() {
-        System.out.println("Informe uma frase");
-        String frase = leia.nextLine(), vogais;
-        int total = frase.length();
-        System.out.println("A frase tem " + total + " caracteres.");
-      
+        System.out.println("Digite uma frase: ");
+        String frase = leia.nextLine().trim();
+        int cont = 0;
+        for (int i = 0; i < frase.length(); i++) {
+            if (frase.charAt(i) != ' ' &&
+                    (i == 0 || frase.charAt(i - 1) == ' ')) {
+                cont++;
+            }
         }
 
-    
+        System.out.println("Quantidade de palavras: " + cont);
+    }
 
     public static void ex19() {
         String senha;
         do {
-            System.out.println("Informe a senha:");
+            System.out.println("Informe a senha: ");
             senha = leia.next();
             if (senha.length() < 8) {
                 System.out.println("A senha deve ter pelo menos 8 caracteres");
@@ -323,6 +327,54 @@ public class Atividade_ListaTres {
             }
             System.out.println("Senha Correta!");
         } while (true);
+    }
+
+    public static void ex20() {
+        System.out.print("Digite uma palavra: ");
+        String palavra = leia.nextLine();
+
+        System.out.print("Digite um caractere: ");
+        char caractere = leia.nextLine().charAt(0);
+
+        int quantidade = 0;
+
+        for (int i = 0; i < palavra.length(); i++) {
+            if (palavra.charAt(i) == caractere) {
+                quantidade++;
+            }
+        }
+        System.out.println("A palavra era: " + palavra);
+        System.out.println("O caractere '" + caractere + "' aparece " + quantidade + " vezes.");
+    }
+
+    public static void ex21() {
+        int numero;
+
+        do {
+            System.out.print("Digite um número entre 1 e 100: ");
+            numero = leia.nextInt();
+
+            if (numero < 1 || numero > 100) {
+                System.out.println("Tente novamente.");
+            }
+
+        } while (numero < 1 || numero > 100);
+
+        System.out.println("O numero está correto: " + numero);
+    }
+
+    public static void ex22() {
+        System.out.println("Digite um texto com letras e números: ");
+        String texto = leia.nextLine();
+        int total = 0;
+        for (int i = 0; i < texto.length(); i++) {
+            char caractere = texto.charAt(i);
+
+            if (Character.isDigit(caractere)) {
+                total += Character.getNumericValue(caractere);
+            }
+        }
+        System.out.println("Soma dos dígitos: " + total);
     }
 
     public static void ex23() {
