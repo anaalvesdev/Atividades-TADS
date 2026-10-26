@@ -6,7 +6,7 @@ public class Atividade_ListaTres {
     static java.util.Random rand = new java.util.Random();
 
     public static void main(String[] args) {
-        ex1();
+        ex13();
     }
 
     // metodo
@@ -189,4 +189,88 @@ public class Atividade_ListaTres {
             }
         } while (cpf.length() != 11);
     }
+
+    public static void ex12() {
+        String frase = "";
+        int repeticoes;
+        System.out.println("Informe uma frase");
+        frase = leia.nextLine();
+        System.out.println("Quantas vezes deseja repetir?");
+        repeticoes = leia.nextInt();
+        for (int i = 0; i < repeticoes; i++) {
+            System.out.println(frase);
+        }
+    }
+
+    public static void ex13() {
+        String palavra = "";
+        int repeticoes;
+        System.out.println("Informe uma palavra:");
+        palavra = leia.nextLine();
+        System.out.println("Quantas vezes quer ver ela sendo repetida?");
+        repeticoes = leia.nextInt();
+        for (int i = 0; i < repeticoes; i++) {
+            System.out.println(palavra);
+        }
+    }
+
+public static void ex14(){
+    
+}
+
+
+
+    public static void ex19() {
+        String senha;
+        do {
+            System.out.println("Informe a senha:");
+            senha = leia.next();
+            if (senha.length() < 8) {
+                System.out.println("A senha deve ter pelo menos 8 caracteres");
+                continue;
+            }
+            boolean temNumero = false, temMaiusculo = false;
+            for (int i = 0; i < senha.length(); i++) {
+                char letra = senha.charAt(i);
+                if (letra >= 48 && letra <= 57) {
+                    temNumero = true;
+                } else if (letra >= 65 && letra <= 90) {
+                    temMaiusculo = true;
+                }
+            }
+            if (temNumero && temMaiusculo) {
+                break;
+            } else {
+                System.out.println("A senha deve ter pelo menos letra maiuscula e minuscula");
+            }
+            System.out.println("Senha Correta!");
+        } while (true);
+    }
+
+    public static void ex23() {
+        int numero = 0, qtdPares = 0, qtdImpares = 0, qtdNumeros = 0, maior = 0, menor = Integer.MAX_VALUE, media = 0;
+        while (numero >= 0) {
+            System.out.println("Informe um numero");
+            numero = leia.nextInt();
+            if (numero <= 0) {
+                break;
+            }
+            if (numero % 2 == 0) {
+                qtdPares++;
+            } else {
+                qtdImpares++;
+            }
+            if (numero > maior) {
+                maior = numero;
+            }
+            if (numero < menor) {
+                menor = numero;
+            }
+            media += numero;
+            qtdNumeros++;
+            System.out.printf("Total de pares: %d%n", qtdPares);
+        }
+
+    }
+
 }
