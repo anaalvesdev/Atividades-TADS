@@ -2,11 +2,11 @@ import java.util.Scanner;
 
 public class exercicioArray {
     public static void main(String[] args) {
-        // int qtd;
-        // String[] palavras; // variavel do array
-        // System.out.println("Quantas palavras serão digitadas?");
-        // qtd = leia.nextInt();
-        // palavras = new String[qtd]; //
+         int qtd;
+         String[] palavras; // variavel do array
+         System.out.println("Quantas palavras serão digitadas?");
+         qtd = leia.nextInt();
+         palavras = new String[qtd]; //
         Scanner leia = new Scanner(System.in);
         String nome;
         double nota;
