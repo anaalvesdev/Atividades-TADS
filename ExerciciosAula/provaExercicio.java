@@ -12,7 +12,9 @@ public class provaExercicio {
         int qtdPag = 0;
         int qtdEmprestimos = 0;
         int qtdDevolucoes = 0;
-        int[] ano = new int[10];
+        int qtdMenosEmprestados;
+        double mediaEmprestimos, Estatísticas;
+        int ano = 0;
 
         /*
          * A quantidade mínima de páginas é 50 e a máxima é 1500
@@ -27,6 +29,21 @@ public class provaExercicio {
         qtd = leia.nextInt();
         if (qtd < 0 || qtd > 10) {
             System.out.println("Quantidade errada,não é possível continuar");
+        }
+
+        /*
+         * A quantidade mínima de páginas é 50 e a máxima é 1500
+         * As quantidades de empréstimos e devoluções não podem ser negativas
+         * A quantidade de devoluções não pode ser maior que a quantidade de empréstimos
+         * O ano de publicação deve estar entre 1950 e 2025
+         */
+
+        if (qtdPag < 50 && qtdPag > 1500) {
+            System.out.println("Informe uma quantidade valida de paginas: ");
+        } else if (qtdEmprestimos < 0 && qtdDevolucoes < 0) {
+            System.out.println("Informe um número positivo: ");
+        } else if (qtdDevolucoes > qtdEmprestimos) {
+            System.out.println("Quantidade de Devoluções não podem ser maior que a quantidade de emprestimos");
         }
 
         while (qtd > 0 || qtd < 10) {
@@ -47,41 +64,45 @@ public class provaExercicio {
 
             System.out.println("8. Encerrar");
             escolha = leia.nextInt();
-            if (escolha == 8) {
-                break;
-            } else if (escolha == 1) {
-                System.out.println("Informe o Título");
-                titulo = leia.next();
-                System.out.println("Informe o Ano de publicação");
+            switch (escolha) {
+                case 1:
+                    System.out.println("Informe o Título");
+                    titulo = leia.next();
+                    System.out.println("Informe o Ano de publicação");
+                    ano = leia.nextInt();
+                    System.out.println("Informe a quantidade de páginas");
+                    qtdPag = leia.nextInt();
+                    System.out.println("Informe a quantidade de empréstimos realizados");
+                    qtdEmprestimos = leia.nextInt();
+                    System.out.println("Informe a quantidade de devoluções realizadas");
+                    qtdDevolucoes = leia.nextInt();
+                    break;
+                case 2:
 
-                System.out.println("Informe a quantidade de páginas");
-
-                System.out.println("Informe a quantidade de empréstimos realizados");
-
-                System.out.println("Informe a quantidade de devoluções realizadas");
-
-            } else if (escolha == 2) {
-                System.out.println();
-            } else if (escolha == 3) {
-                System.out.println("Livro menos emprestados");
-            } else if (escolha == 4) {
-                System.out.println("Media emprestimos");
-            } else if (escolha == 5) {
-                System.out.println("acima da media de emprestimos");
-            } else if (escolha == 6) {
-                System.out.println("estatisticas");
-            } else if (escolha == 7) {
-                System.out.println();
+                    System.out.println();
+                    break;
+                case 3:
+                    System.out.println();
+                    break;
+                case 4:
+                    System.out.println();
+                    break;
+                case 5:
+                    System.out.println();
+                    break;
+                case 6:
+                    System.out.println();
+                    break;
+                case 7:
+                    System.out.println("Informe o nome do livro que deseja buscar: ");
+                    break;
+                case 8:
+                    break;
+                default:
+                    break;
             }
 
         }
-        if (qtdPag < 50 || qtdPag > 1500) {
-            System.out.println("Quantidade de paginas não permitidas");
-        } else if (qtdEmprestimos < 0 && qtdDevolucoes < 0) {
-            System.out.print("Informe um número positivo!");
-        } else if (qtdDevolucoes > qtdEmprestimos) {
-            System.err.print("Não é possivel a quantidade de devoluções ser maior que o emprestimos: ");
-        } else if()
 
     }
 
