@@ -22,7 +22,7 @@ public class provaExercicio {
         int[] qtdPag = new int[qtd];
         int[] qtdEmprestimos = new int[qtd];
         int[] qtdDevolucoes = new int[qtd];
-        int[] livros = new int[qtd]; //esse array e onde ira ficar tudo
+        //int[] livros = new int[qtd]; //esse array e onde ira ficar tudo
         /*
          * A quantidade mínima de páginas é 50 e a máxima é 1500
          * • As quantidades de empréstimos e devoluções não podem ser negativas
@@ -30,21 +30,11 @@ public class provaExercicio {
          * empréstimos
          * • O ano de publicação deve estar entre 1950 e 2025
          */
-
-        /*
-         * A quantidade mínima de páginas é 50 e a máxima é 1500
-         * As quantidades de empréstimos e devoluções não podem ser negativas
-         * A quantidade de devoluções não pode ser maior que a quantidade de empréstimos
-         * O ano de publicação deve estar entre 1950 e 2025
-         */
         for (int i = 0; i < qtd; i++) { //randow para gerar numeros aleatorios com base nas especificações acima
             titulo[i] = "Livro " + (i + 1); //com titulo e diferente pq é texto
             ano[i] = rand.nextInt(76) + 1950;
-        
             qtdPag[i] = rand.nextInt(1451) + 50;
-        
             qtdEmprestimos[i] = rand.nextInt(1001);
-        
             qtdDevolucoes[i] = rand.nextInt(qtdEmprestimos[i] + 1);
         }
 
